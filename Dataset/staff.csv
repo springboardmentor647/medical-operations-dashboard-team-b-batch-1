@@ -1,0 +1,71 @@
+Staff_ID,Staff_Name,Department_ID,Role,Shift
+STF001,Harini Choudhury,D07,Technician,Evening
+STF002,Radhika Dugar,D04,Ward Assistant,Evening
+STF003,Aarush Lall,D01,Technician,Night
+STF004,Yashica Cherian,D06,Nurse,Night
+STF005,Yashica Issac,D08,Ward Assistant,Morning
+STF006,Kashvi Edwin,D05,Nurse,Morning
+STF007,Ekiya Suresh,D08,Nurse,Night
+STF008,Isaac Patil,D05, Nurse ,Evening
+STF009,Wriddhish Bhardwaj,D02,Nurse,Morning
+STF010,Farhan Chada,D07,Ward Assistant,Night
+STF011,Ekapad Walia,D05,Nurse,Night
+STF012,Kabir Soman,D08,Ward Assistant,Night
+STF013,Alka Wable,D02,Receptionist,Evening
+STF014,Siddharth Zacharia,D01,Nurse,Night
+STF015,Devika Rastogi,D04,Nurse,Night
+STF016,Raksha Varughese,D04,Technician,Night
+STF017,Jai Kota,D04,Nurse,Night
+STF018,Devansh Nigam,D05,Nurse,Morning
+STF019,Victor Kannan,D01,Nurse,Morning
+STF020,Ekavir Bhargava,D05,Nurse,Night
+STF021,Ekansh Balay,D07,Receptionist,Evening
+STF022,Ekavir Varkey,D05,Technician,Morning
+STF023,Arya Sunder,D01,Ward Assistant,
+STF024,Kevin Solanki,D01,Technician,Morning
+STF025,Urvashi Ray,D07,Technician,Morning
+STF026,Girindra Chatterjee,D01,Nurse,Evening
+STF027,Irya Sampath,D08,technician,Night
+STF028,Unni Bhagat,D01,Ward Assistant,Night
+STF029,Darsh Rau,D04,Technician,Evening
+STF030,Ikbal Kothari,D08,Technician,Evening
+STF031,Ranveer Yadav,D08,Nurse,Night
+STF032,Logan Sami,D07,Nurse,Night
+STF033,Arya Shere,D03,Nurse,Evening
+STF034,Faqid Savant,D03,Nurse,Morning
+STF035,Chandresh Zachariah,D01,Technician,Morning
+STF036,Girik Khalsa,D08,Technician,Evening
+STF037,Niharika Sunder,D03,nurse,Morning
+STF038,Tanay Rattan,D03,Ward Assistant,Evening
+STF039,Nitesh Raghavan,D01,Nurse,Morning
+STF040,Madhavi Lanka,D03,Nurse,Morning
+STF041,Bhavika Sampath,D05, Nurse ,Night
+STF042,Mohammed Gupta,D02,Nurse,Night
+STF043,Teerth Bhardwaj,D07,Receptionist,Morning
+STF044,Dipta Bhandari,D02,Nurse,Morning
+STF045,Vansha Thakkar,D01, Ward Assistant ,Night
+STF046,Dakshesh Trivedi,D04,Technician,Night
+STF047,Quincy Biswas,D07,Nurse,Night
+STF048,Wahab Raval,D01,Receptionist,Evening
+STF049,Yatin Baral,D08,Receptionist,Morning
+STF050,Oni Virk,D04,Nurse,Night
+STF051,Advika Jayaraman,D02,Nurse,Morning
+STF052,William Lanka,D01,Nurse,Evening
+STF053,Karan Mital,D08,Nurse,Evening
+STF054,Diya Bora,D07, Nurse ,Night
+STF055,Tara Chaudhry,D07,Ward Assistant,Evening
+STF056,Tanay Toor,D06,Ward Assistant,Morning
+STF057,Kevin Palla,D08,nurse,Night
+STF058,Yash Pingle,D05,Nurse,Morning
+STF059,Nakul Sarma,D03,Receptionist,Morning
+STF060,Abhiram Mistry,D04,Nurse,Evening
+STF061,Krish Lalla,D08,Nurse,Evening
+STF062,Hredhaan Dugal,D06,Nurse,Evening
+STF063,Baghyawati Kade,D03,Receptionist,Evening
+STF064,Samar Lalla,D03,Nurse,Evening
+STF065,Zayan Behl,D01,Ward Assistant,Night
+STF066,Pallavi Malhotra,D03,Technician,Morning
+STF067,Aarush Nath,D05,Nurse,Morning
+STF068,Adweta Edwin,D07,Technician,Morning
+STF069,Prisha Andra,D06,Nurse,Morning
+STF070,Faqid Dixit,D03,Ward Assistant,Evening

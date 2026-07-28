@@ -1,0 +1,181 @@
+Bed_ID,Department_ID,Ward,Bed_Type,Bed_Status
+B001,D05,General Ward,Standard,Available
+B002,D08,General Ward,Standard,Available
+B003,D04,Private Room,ICU Bed,Available
+B004,D08,General Ward,ICU Bed,Available
+B005,D08,General Ward,Standard,Available
+B006,D08,General Ward,Electric,Available
+B007,D07,General Ward,Standard,Available
+B008,D03,Private Room,Standard,Available
+B009,D01,Private Room,Standard,Available
+B010,D08,ICU,Standard,Available
+B011,D01,General Ward,Standard,Occupied
+B012,D08,General Ward,Standard,Available
+B013,D04,General Ward,ICU Bed,Available
+B014,D03,General Ward,ICU Bed,Available
+B015,D03,General Ward,Electric,Available
+B016,D06,ICU,Standard,Occupied
+B017,D07,ICU,Standard,Available
+B018,D06,General Ward,Electric,Available
+B019,D06,Private Room,Electric,Occupied
+B020,D06,ICU,Standard,Available
+B021,D06,General Ward,ICU Bed,Available
+B022,D06,ICU,Electric,Available
+B023,D05,General Ward,ICU Bed,Available
+B024,D03,General Ward,Electric,Occupied
+B025,D06,General Ward,Electric,Available
+B026,D08,Private Room,Standard,Available
+B027,D03,General Ward,ICU Bed,Available
+B028,D03,General Ward,ICU Bed,Available
+B029,D02,General Ward,Standard,Available
+B030,D05,General Ward,Standard,Available
+B031,D06,Private Room,Standard,Available
+B032,D01,ICU,Electric,Available
+B033,D04,general ward,ICU Bed,Available
+B034,D07,General Ward,Standard,Available
+B035,D08,General Ward,Standard,Available
+B036,D01,general ward,Standard,Occupied
+B037,D05,General Ward,ICU Bed,Available
+B038,D04,General Ward,Electric,Available
+B039,D05,General Ward,Electric,Available
+B040,D08,ICU,Standard,Available
+B041,D03,ICU,Standard,Occupied
+B042,D04,General Ward,Standard,Occupied
+B043,D03,General Ward,Standard,Available
+B044,D08,ICU,ICU Bed,Available
+B045,D01,General Ward,Electric,Available
+B046,D08,Private Room,ICU Bed,Available
+B047,D01,ICU,ICU Bed,Available
+B048,D04,General Ward,Standard,Available
+B049,D04,general ward,Electric,Available
+B050,D06,ICU,ICU Bed,Available
+B051,D05,General Ward,Electric,Available
+B052,D06,General Ward,Standard,Available
+B053,D05,Private Room,Standard,Occupied
+B054,D06,General Ward,Standard,Available
+B055,D03,general ward,ICU Bed,Available
+B056,D04,ICU,Electric,Available
+B057,D01,General Ward,Standard,Available
+B058,D05,General Ward,Electric,Available
+B059,D08,Private Room,Electric,Occupied
+B060,D05,General Ward,Standard,Available
+B061,D01,Private Room,Standard,Occupied
+B062,D06, Private Room ,Electric,Available
+B063,D05,General Ward,Standard,Available
+B064,D07,General Ward,Electric,Available
+B065,D03,General Ward,Standard,Occupied
+B066,D04,General Ward,ICU Bed,Available
+B067,D01,General Ward,Standard,Available
+B068,D04,ICU,Standard,Available
+B069,D07,General Ward,ICU Bed,Occupied
+B070,D05,General Ward,Standard,Available
+B071,D05,private room,Standard,Occupied
+B072,D08,General Ward,Standard,Available
+B073,D07,Private Room,Electric,Occupied
+B074,D01,General Ward,Electric,Available
+B075,D08,General Ward,Electric,Available
+B076,D03,ICU,Standard,Available
+B077,D08,ICU,Standard,Available
+B078,D02,Private Room,Standard,Available
+B079,D01,ICU,Standard,Available
+B080,D02,Private Room,Standard,Available
+B081,D07,General Ward,Standard,Available
+B082,D06,General Ward,Standard,Occupied
+B083,D02,Private Room,ICU Bed,Available
+B084,D03,Private Room,Standard,Available
+B085,D08,Private Room,Standard,Available
+B086,D06,General Ward,Electric,Occupied
+B087,D08,General Ward,Standard,Available
+B088,D02,Private Room,Electric,Available
+B089,D08,General Ward,ICU Bed,Available
+B090,D07,Private Room,ICU Bed,Available
+B091,D06,Private Room,Standard,Available
+B092,D07,General Ward,ICU Bed,Available
+B093,D02,Private Room,Standard,Available
+B094,D07,Private Room,Standard,Available
+B095,D03,General Ward,Standard,Available
+B096,D02,Private Room,ICU Bed,Available
+B097,D02,General Ward,Standard,Available
+B098,D02,Private Room,Standard,Available
+B099,D01,General Ward,Electric,Occupied
+B100,D08,Private Room,Standard,Available
+B101,D01,General Ward,Standard,Available
+B102,D01,General Ward,Standard,Occupied
+B103,D03,Private Room,Standard,Available
+B104,D06,General Ward,Standard,Available
+B105,D08,general ward,Standard,Available
+B106,D07,Private Room,Electric,Available
+B107,D05,private room,Standard,Available
+B108,D02,General Ward,Standard,Available
+B109,D07,ICU,ICU Bed,Available
+B110,D02,General Ward,Standard,Available
+B111,D03,General Ward,Electric,Occupied
+B112,D02,general ward,Standard,Occupied
+B113,D01,ICU,Standard,Available
+B114,D08,Private Room,Standard,Available
+B115,D05,private room,Standard,Available
+B116,D04,Private Room,Standard,Occupied
+B117,D02,General Ward,Standard,Available
+B118,D07,General Ward,Standard,Available
+B119,D01,General Ward,Standard,Occupied
+B120,D04, General Ward ,Standard,Available
+B121,D05,General Ward,Standard,Occupied
+B122,D04,Private Room,Standard,Available
+B123,D01,General Ward,Standard,Available
+B124,D08,General Ward,Electric,Occupied
+B125,D08,General Ward,Standard,Occupied
+B126,D06,Private Room,Electric,Available
+B127,D08,icu,Electric,Available
+B128,D06,General Ward,Standard,Available
+B129,D04,General Ward,ICU Bed,Available
+B130,D03,ICU,ICU Bed,Occupied
+B131,D07,general ward,Standard,Available
+B132,D07,Private Room,Standard,Available
+B133,D04,ICU,Electric,Occupied
+B134,D02,General Ward,Electric,Available
+B135,D02,General Ward,Standard,Available
+B136,D08,Private Room,Standard,Available
+B137,D07,General Ward,Standard,Available
+B138,D07,general ward,Standard,Available
+B139,D06,Private Room,Electric,Available
+B140,D03, Private Room ,Standard,Occupied
+B141,D01,Private Room,Standard,Available
+B142,D02,Private Room,Electric,Available
+B143,D07,General Ward,Standard,Available
+B144,D06,General Ward,Standard,Available
+B145,D05,Private Room,Electric,Available
+B146,D06,General Ward,ICU Bed,Occupied
+B147,D02,General Ward,Standard,Available
+B148,D02,private room,Standard,Available
+B149,D06,General Ward,Standard,Available
+B150,D01,General Ward,Standard,Available
+B151,D04,general ward,Standard,Occupied
+B152,D02,General Ward,Standard,Available
+B153,D06,General Ward,Standard,Occupied
+B154,D07,General Ward,Standard,Occupied
+B155,D06,General Ward,Standard,Available
+B156,D03,ICU,Standard,Available
+B157,D04,ICU,Standard,Available
+B158,D05,General Ward,Standard,Available
+B159,D01,Private Room,Standard,Occupied
+B160,D08,General Ward,ICU Bed,Available
+B161,D05,General Ward,Standard,Available
+B162,D04,private room,Electric,Available
+B163,D04,General Ward,Electric,Available
+B164,D04,Private Room,Standard,Occupied
+B165,D05,General Ward,Standard,Available
+B166,D07,Private Room,Standard,Available
+B167,D04,General Ward,Standard,Available
+B168,D06,Private Room,Electric,Available
+B169,D05,General Ward,Standard,Available
+B170,D08,Private Room,Standard,Available
+B171,D04,General Ward,Standard,Occupied
+B172,D06,general ward,Standard,Occupied
+B173,D07,Private Room,Electric,Occupied
+B174,D03,General Ward,Standard,Available
+B175,D07,ICU,Standard,Available
+B176,D08, ICU ,ICU Bed,Available
+B177,D04,general ward,Electric,Available
+B178,D08,ICU,Standard,Available
+B179,D05,General Ward,Standard,Occupied
+B180,D02,Private Room,Standard,Available
