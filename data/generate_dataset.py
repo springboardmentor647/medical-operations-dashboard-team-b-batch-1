@@ -9,8 +9,8 @@ random.seed(42)
 fake = Faker("en_IN")
 Faker.seed(42)
 
-N_PATIENTS = 2000
-N_ADMISSIONS = 2300
+N_PATIENTS = 5000
+N_ADMISSIONS = 5750
 
 # ---------- 1. Departments ----------
 departments = pd.DataFrame({
@@ -21,7 +21,6 @@ departments = pd.DataFrame({
     "Building": ["A", "A", "B", "A", "B", "B", "C", "A"],
 })
 
-# Diagnosis/Treatment mapped realistically per department
 dept_diagnosis = {
     "Cardiology": ["Hypertension", "Heart Failure", "Arrhythmia", "Coronary Artery Disease"],
     "Orthopedics": ["Fracture", "Joint Replacement", "Sprain", "Osteoarthritis"],
@@ -42,7 +41,6 @@ dept_treatment = {
     "Oncology": ["Chemotherapy", "Radiation", "Surgery", "Palliative Care"],
     "ENT": ["Surgery", "Medication", "Hearing Aid Fitting", "Observation"],
 }
-# Base cost per treatment complexity (used to derive realistic billing later)
 treatment_base_cost = {
     "Angioplasty": 180000, "Medication": 3000, "ECG Monitoring": 8000, "Bypass Surgery": 250000,
     "Surgery": 90000, "Physiotherapy": 12000, "Casting": 6000, "Joint Replacement": 200000,
@@ -55,7 +53,7 @@ treatment_base_cost = {
 }
 
 # ---------- 2. Doctors ----------
-n_doctors = 36
+n_doctors = 90
 doctors = pd.DataFrame({
     "Doctor_ID": [f"DOC{i:03d}" for i in range(1, n_doctors + 1)],
     "Doctor_Name": [fake.name() for _ in range(n_doctors)],
@@ -68,7 +66,7 @@ doctors["Specialization"] = doctors["Department_ID"].map(
 )
 
 # ---------- 3. Staff ----------
-n_staff = 70
+n_staff = 175
 staff = pd.DataFrame({
     "Staff_ID": [f"STF{i:03d}" for i in range(1, n_staff + 1)],
     "Staff_Name": [fake.name() for _ in range(n_staff)],
@@ -78,16 +76,16 @@ staff = pd.DataFrame({
 })
 
 # ---------- 4. Beds ----------
-n_beds = 180
+n_beds = 450
 beds = pd.DataFrame({
     "Bed_ID": [f"B{i:03d}" for i in range(1, n_beds + 1)],
     "Department_ID": np.random.choice(departments["Department_ID"], n_beds),
     "Ward": np.random.choice(["General Ward", "ICU", "Private Room"], n_beds, p=[0.6, 0.15, 0.25]),
     "Bed_Type": np.random.choice(["Standard", "Electric", "ICU Bed"], n_beds, p=[0.6, 0.25, 0.15]),
-    "Bed_Status": "Available",  # set properly after admissions are generated
+    "Bed_Status": "Available",
 })
 
-# ---------- 5. Resources (optional) ----------
+# ---------- 5. Resources ----------
 resource_names = ["Ventilator", "X-Ray Machine", "MRI Scanner", "Wheelchair", "Oxygen Cylinder",
                    "ECG Machine", "Dialysis Machine", "Infusion Pump"]
 resources = pd.DataFrame({
@@ -114,7 +112,7 @@ patients = pd.DataFrame({
     "Gender": np.random.choice(["Male", "Female"], N_PATIENTS),
     "Blood_Group": np.random.choice(["A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"], N_PATIENTS,
                                      p=[0.22, 0.05, 0.3, 0.05, 0.28, 0.03, 0.05, 0.02]),
-    "City": np.random.choice(city_list, N_PATIENTS),  # even-ish real distribution, no city skewed as "sicker"
+    "City": np.random.choice(city_list, N_PATIENTS),
     "Contact_Number": [fake.phone_number() for _ in range(N_PATIENTS)],
 })
 patients["State"] = patients["City"].map(indian_cities)
@@ -135,7 +133,6 @@ for i in range(1, N_ADMISSIONS + 1):
     patient = patients.sample(1).iloc[0]
 
     admission_date = start_date + pd.Timedelta(days=np.random.randint(0, date_range_days))
-    # realistic stay length varies by department
     stay_ranges = {"Cardiology": (2, 10), "Orthopedics": (3, 14), "Pediatrics": (1, 6),
                    "General Medicine": (1, 7), "Neurology": (2, 12), "Gynecology": (1, 5),
                    "Oncology": (1, 15), "ENT": (1, 4)}
@@ -156,17 +153,15 @@ for i in range(1, N_ADMISSIONS + 1):
         "Bed_ID": bed["Bed_ID"],
         "Diagnosis": diagnosis,
         "Treatment": treatment,
-        "Admission_Status": "Discharged",  # default; a subset flipped to Admitted below
+        "Admission_Status": "Discharged",
     })
 
 admissions = pd.DataFrame(admission_rows)
 
-# A realistic subset still currently admitted (recent admissions, no discharge yet conceptually)
 admissions = admissions.sort_values("Admission_Date").reset_index(drop=True)
-still_admitted_idx = admissions.tail(40).index  # most recent 40 -> currently admitted
+still_admitted_idx = admissions.tail(100).index
 admissions.loc[still_admitted_idx, "Admission_Status"] = "Admitted"
 
-# ---------- Update Bed_Status based on real admissions ----------
 occupied_beds = admissions.loc[admissions["Admission_Status"] == "Admitted", "Bed_ID"].unique()
 beds["Bed_Status"] = np.where(beds["Bed_ID"].isin(occupied_beds), "Occupied", "Available")
 
@@ -177,12 +172,11 @@ for i, row in admissions.iterrows():
     stay_len = (pd.Timestamp(row["Discharge_Date"]) - pd.Timestamp(row["Admission_Date"])).days
     stay_len = max(stay_len, 1)
     total_amount = base_cost + (stay_len * np.random.randint(800, 1500))
-    total_amount = round(total_amount * np.random.uniform(0.95, 1.05), 2)  # small natural variation
+    total_amount = round(total_amount * np.random.uniform(0.95, 1.05), 2)
 
     insurance_coverage = round(total_amount * np.random.choice([0, 0.3, 0.5, 0.8, 1.0],
                                                                  p=[0.3, 0.2, 0.2, 0.2, 0.1]), 2)
     if row["Admission_Status"] == "Admitted":
-        # ongoing admission -> partial/no payment yet, not a final bill
         paid_amount = round(np.random.uniform(0, insurance_coverage if insurance_coverage > 0 else total_amount * 0.2), 2)
         payment_status = "Pending"
     else:
@@ -204,7 +198,6 @@ billing = pd.DataFrame(billing_rows)
 
 # ================= Realistic messiness (controlled, not chaotic) =================
 
-# 1. Missing values in a few non-critical fields (~2-3%)
 def add_missing(df, col, frac=0.02):
     idx = df.sample(frac=frac, random_state=42).index
     df.loc[idx, col] = np.nan
@@ -214,14 +207,12 @@ patients = add_missing(patients, "Contact_Number", 0.03)
 patients = add_missing(patients, "Blood_Group", 0.02)
 staff = add_missing(staff, "Shift", 0.02)
 
-# 2. A handful of exact duplicate rows
-dup_patients = patients.sample(n=20, random_state=1)
+dup_patients = patients.sample(n=50, random_state=1)
 patients = pd.concat([patients, dup_patients], ignore_index=True)
 
-dup_admissions = admissions.sample(n=15, random_state=1)
+dup_admissions = admissions.sample(n=40, random_state=1)
 admissions = pd.concat([admissions, dup_admissions], ignore_index=True)
 
-# 3. Inconsistent casing/spacing in category fields
 def messy_case(val):
     r = np.random.random()
     if r < 0.1:
@@ -230,28 +221,26 @@ def messy_case(val):
         return f" {val} "
     return val
 
-admissions["Department_ID"] = admissions["Department_ID"]  # keep IDs clean (keys shouldn't be messy)
 staff["Role"] = staff["Role"].apply(messy_case)
 beds["Ward"] = beds["Ward"].apply(messy_case)
 
-# 4. A few genuine outliers (not everywhere)
-outlier_idx = admissions.sample(n=5, random_state=2).index
+outlier_idx = admissions.sample(n=12, random_state=2).index
 admissions.loc[outlier_idx, "Discharge_Date"] = admissions.loc[outlier_idx, "Admission_Date"].apply(
     lambda d: (pd.Timestamp(d) + pd.Timedelta(days=int(np.random.randint(30, 60)))).date()
 )
 
 # ================= Save =================
 import os
-os.makedirs("/home/claude/data", exist_ok=True)
+os.makedirs("data", exist_ok=True)
 
-departments.to_csv("/home/claude/data/departments.csv", index=False)
-doctors.to_csv("/home/claude/data/doctors.csv", index=False)
-staff.to_csv("/home/claude/data/staff.csv", index=False)
-beds.to_csv("/home/claude/data/beds.csv", index=False)
-resources.to_csv("/home/claude/data/resources.csv", index=False)
-patients.to_csv("/home/claude/data/patients.csv", index=False)
-admissions.to_csv("/home/claude/data/admissions.csv", index=False)
-billing.to_csv("/home/claude/data/billing.csv", index=False)
+departments.to_csv("data/departments.csv", index=False)
+doctors.to_csv("data/doctors.csv", index=False)
+staff.to_csv("data/staff.csv", index=False)
+beds.to_csv("data/beds.csv", index=False)
+resources.to_csv("data/resources.csv", index=False)
+patients.to_csv("data/patients.csv", index=False)
+admissions.to_csv("data/admissions.csv", index=False)
+billing.to_csv("data/billing.csv", index=False)
 
 print("Departments:", departments.shape)
 print("Doctors:", doctors.shape)
@@ -261,4 +250,4 @@ print("Resources:", resources.shape)
 print("Patients:", patients.shape)
 print("Admissions:", admissions.shape)
 print("Billing:", billing.shape)
-print("\nAll 8 CSVs saved to /home/claude/data/")
+print("\nAll 8 CSVs saved successfully!")

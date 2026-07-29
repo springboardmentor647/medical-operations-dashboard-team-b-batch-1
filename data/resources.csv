@@ -1,0 +1,17 @@
+Resource_ID,Resource_Name,Department_ID,Quantity,Available_Quantity
+R01,Ventilator,D04,3,3
+R02,X-Ray Machine,D03,9,9
+R03,MRI Scanner,D08,8,7
+R04,Wheelchair,D06,2,0
+R05,Oxygen Cylinder,D05,6,6
+R06,ECG Machine,D04,13,13
+R07,Dialysis Machine,D08,7,7
+R08,Infusion Pump,D08,5,3
+R09,Ventilator,D04,3,1
+R10,X-Ray Machine,D01,14,13
+R11,MRI Scanner,D01,5,3
+R12,Wheelchair,D06,2,1
+R13,Oxygen Cylinder,D05,8,7
+R14,ECG Machine,D04,3,1
+R15,Dialysis Machine,D06,14,13
+R16,Infusion Pump,D06,3,1
